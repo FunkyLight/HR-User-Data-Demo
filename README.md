@@ -1,4 +1,4 @@
-# 🏢 Human Resource Management System (HR User Rights Demo)
+# Human Resource Management System (HR User Rights Demo)
 
 這是一個基於 C# WinForms 的員工資料管理系統 Demo。
 本專案為 **聯成電腦 宇辰系統科技C#軟體工程師培訓班** 的實作練習作品。主要目的是練習 **ADO.NET/Dapper 資料庫串接**、**介面 (Interface) 設計模式**，以及實作 **RBAC (Role-Based Access Control) 權限控管機制**。
@@ -27,7 +27,7 @@
     * **ADO.NET:** 用於 `DataTable` 的批次載入與處理。
 * **架構模式:** N-Tier (簡易分層: UI -> Logic/Interface -> Data)
 
-## 🗄️ 資料庫設計 (Database Schema)
+## 資料庫設計 (Database Schema)
 
 本系統使用關聯式資料庫，主要包含以下資料表：
 
@@ -39,7 +39,7 @@
 > **SQL 查詢邏輯運用：**
 > 登入時透過 SQL Join 關聯多張表，並使用 `GROUP_CONCAT` 將權限代碼串接成字串 (e.g., "VIEW_ALL,EDIT_USER")，登入後由程式解析為 List，供前端即時判斷。
 
-## 💻 程式碼結構亮點
+## 程式碼結構亮點
 
 ### 1. 統一的回傳結構 (Result Pattern)
 為了優化錯誤處理，回傳包含狀態與訊息的物件：
@@ -61,7 +61,7 @@ internal interface IPerm
 3. 安全性意識
 在 SqlQuery 類別中使用參數化查詢 (Parameterized Queries) ... WHERE s.account = @account ...，防止 SQL Injection 攻擊。
 
-🚀 功能操作說明
+## 功能操作說明
 系統登入：輸入帳號密碼，系統驗證後載入使用者資訊與權限。
 
 列表瀏覽：
@@ -78,7 +78,7 @@ internal interface IPerm
 
 搜尋：上方搜尋框輸入姓名可即時過濾列表。
 
-📝 學習心得與未來展望 (Future Improvements)
+## 學習心得與未來展望 (Future Improvements)
 作為課程實作專案，目前版本著重於功能的實現與架構的嘗試，未來可針對以下項目進行優化：
 
 安全性：目前的密碼在資料庫為測試用明碼，未來應加入 Hash (如 SHA256 + Salt) 加密機制。
@@ -86,8 +86,3 @@ internal interface IPerm
 配置管理：將 Connection String 移至 appsettings.json 管理。
 
 非同步處理：將資料庫操作全面改為 async/await，提升 UI 回應速度。
-
-👨‍💻 Author
-學員姓名： 黃民暉
-
-課程名稱： 聯成電腦 宇辰系統科技C#軟體工程師培訓班
