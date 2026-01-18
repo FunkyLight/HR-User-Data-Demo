@@ -5,7 +5,7 @@
 
 系統能透過使用者登入後的權限碼，動態決定畫面的功能（如：唯讀、編輯、新增或刪除），模擬真實企業環境中的人資系統邏輯。
 
-## 📸 專案特色
+## 專案特色
 
 * **權限導向的 UI 設計 (Dynamic UI based on Permissions)**
     * 系統不只是單純的 CRUD，而是根據登入者的職級與部門權限 (`PermCodes`)，自動判斷按鈕的顯示/隱藏與欄位的唯讀狀態。
@@ -17,7 +17,7 @@
 * **資料篩選 (Client-side Filtering)**
     * 利用 `DataTable.DefaultView.RowFilter` 實作即時的姓名關鍵字搜尋，提升使用者體驗。
 
-## 🛠️ 技術堆疊 (Tech Stack)
+## 技術堆疊 (Tech Stack)
 
 * **語言:** C# (.NET 6 / .NET 8)
 * **框架:** Windows Forms (WinForms)
