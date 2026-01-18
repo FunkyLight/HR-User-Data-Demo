@@ -36,6 +36,56 @@
 * **permissions:** 定義系統可用的權限代碼 (如 `EDIT_USER`, `VIEW_ALL`)。
 * **dept_rank_perm:** **核心權限表**。透過部門 ID 與職級 ID 的組合，對應出該職位擁有的權限。
 
+```mermaid
+erDiagram
+    %% 實體定義
+    departments {
+        int ID PK
+        string name
+    }
+
+    staffs {
+        int ID PK
+        string name
+        string account
+        string password
+        string gender
+        int rankID FK
+        int deptID FK
+        date createDate
+        date joinDate
+        date leaveDate
+        boolean isEmployed
+        string mobile
+        string email
+        string note
+    }
+
+    ranks {
+        int ID PK
+        string name
+        string rankLevel
+    }
+
+    dept_rank_perm {
+        int deptID PK,FK
+        int rankID PK,FK
+        string permCode PK,FK
+    }
+
+    permissions {
+        string permCode PK
+    }
+
+    %% 關係定義 (對應圖中的菱形關聯)
+    departments ||--o{ staffs : deptID
+    ranks ||--o{ staffs : rankID
+    
+    departments ||--o{ dept_rank_perm : deptID
+    ranks ||--o{ dept_rank_perm : rankID
+    permissions ||--o{ dept_rank_perm : permCode
+```
+
 > **SQL 查詢邏輯運用：**
 > 登入時透過 SQL Join 關聯多張表，並使用 `GROUP_CONCAT` 將權限代碼串接成字串 (e.g., "VIEW_ALL,EDIT_USER")，登入後由程式解析為 List，供前端即時判斷。
 
