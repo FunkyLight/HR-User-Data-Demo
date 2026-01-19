@@ -136,3 +136,7 @@ internal interface IPerm
 配置管理：將 Connection String 移至 appsettings.json 管理。
 
 非同步處理：將資料庫操作全面改為 async/await，提升 UI 回應速度。
+
+## 帳號密碼
+人事主管 帳號：admin 密碼：admin
+行政職員 帳號：b1111111 密碼：11111111
