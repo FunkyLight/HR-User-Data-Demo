@@ -93,7 +93,7 @@ INSERT INTO dept_rank_perm (deptID, rankID, permCode) VALUES
 INSERT INTO dept_rank_perm (deptID, rankID, permCode) VALUES 
 (2, 2, 'VIEW_SELF');
 
-INSERT INTO Employees (account, password, name, gender, deptID, rankID, isEmployed, joinDate) VALUES 
+INSERT INTO staffs (account, password, name, gender, deptID, rankID, isEmployed, joinDate) VALUES 
 ('admin', 'admin', '黃同學', '男', 1, 1, 1, NOW()),
 ('a0000000', '00000000', '張先生', '男', 1, 2, 1, NOW()),
 ('b0000000', '00000000', '龔襄里', '男', 2, 1, 1, NOW()),
