@@ -46,16 +46,16 @@ CREATE TABLE staffs (
     password VARCHAR(100) NOT NULL, -- Store plain for demo or hash? Demo usually implies plain or simple hash. Sticking to plain for absolute demo simplicity unless requested otherwise, but plan said password.
     name VARCHAR(50) NOT NULL,
     gender VARCHAR(10),
-    birthday DATETIME,
+    birthday DATE,
     email VARCHAR(100),
     mobile VARCHAR(20),
-    joinDate DATETIME,
-    leaveDate DATETIME,
-    isEmployed BOOLEAN DEFAULT TRUE,
+    joinDate DATE,
+    leaveDate DATE,
+    isEmployeed BOOLEAN DEFAULT TRUE,
     note TEXT,
     deptID INT,
     rankID INT,
-    createDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    createDate DATE DEFAULT (CURRENT_TIME),
     FOREIGN KEY (deptID) REFERENCES departments(ID),
     FOREIGN KEY (rankID) REFERENCES ranks(ID)
 );
@@ -93,10 +93,10 @@ INSERT INTO dept_rank_perm (deptID, rankID, permCode) VALUES
 INSERT INTO dept_rank_perm (deptID, rankID, permCode) VALUES 
 (2, 2, 'VIEW_SELF');
 
-INSERT INTO staffs (account, password, name, gender, deptID, rankID, isEmployed, joinDate) VALUES 
-('admin', 'admin', '黃同學', '男', 1, 1, 1, NOW()),
-('a0000000', '00000000', '張先生', '男', 1, 2, 1, NOW()),
-('b0000000', '00000000', '龔襄里', '男', 2, 1, 1, NOW()),
-('b1111111', '11111111', '林小妹', '女', 2, 2, 1, NOW());
+INSERT INTO staffs (account, password, name, gender, deptID, rankID, isEmployeed, joinDate) VALUES 
+('admin', 'admin', '黃同學', '男', 1, 1, 1, curdate()),
+('a0000000', '00000000', '張先生', '男', 1, 2, 1, curdate()),
+('b0000000', '00000000', '龔襄里', '男', 2, 1, 1, curdate()),
+('b1111111', '11111111', '林小妹', '女', 2, 2, 1, curdate());
 
 
